@@ -12,7 +12,6 @@ async function scan() {
   loadingDiv.style.display = 'block';
 
   try {
-    // Call the Supabase Edge Function
     const response = await fetch('/functions/v1/zap-scan', {
       method: 'POST',
       headers: {

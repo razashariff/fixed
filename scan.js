@@ -22,7 +22,7 @@ async function scan() {
       body: JSON.stringify({ 
         url, 
         scanType,
-        zapUrl: process.env.ZAP_SCANNER_URL 
+        zapUrl: 'https://zap-scanner-211605900220.europe-west2.run.app'
       })
     });
 

@@ -15,15 +15,10 @@ async function scan() {
     const response = await fetch('/functions/v1/zap-scan', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
         'Authorization': `Bearer ${process.env.SUPABASE_ANON_KEY}`,
-        'X-ZAP-Secret': process.env.ZAP_SHARED_SECRET
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ 
-        url, 
-        scanType,
-        zapUrl: 'https://zap-scanner-211605900220.europe-west2.run.app'
-      })
+      body: JSON.stringify({ targetUrl: url })
     });
 
     if (!response.ok) {

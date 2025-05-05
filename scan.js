@@ -16,9 +16,14 @@ async function scan() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
+        'Authorization': `Bearer ${process.env.SUPABASE_ANON_KEY}`,
+        'X-ZAP-Secret': process.env.ZAP_SHARED_SECRET
       },
-      body: JSON.stringify({ url, scanType })
+      body: JSON.stringify({ 
+        url, 
+        scanType,
+        zapUrl: process.env.ZAP_SCANNER_URL 
+      })
     });
 
     if (!response.ok) {
